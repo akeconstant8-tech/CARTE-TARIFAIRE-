@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carte Tarifaire</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+}
+
+.pricing{
+    width:100%;
+    max-width:350px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.title{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:28px;
+    color:#28a745;
+    font-weight:bold;
+}
+
+.features{
+    list-style:none;
+    padding:0;
+    margin:20px 0;
+}
+
+.features li{
+    padding:10px;
+    border-bottom:1px solid #eee;
+}
+
+.btn{
+    width:100%;
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0056b3;
+    transform:translateY(-2px);
+}
+
+</style>
+</head>
+<body>
+
+<div id="card-container"></div>
+
+<script>
+
+function createCard(title, price, features){
+
+    const card = document.createElement("div");
+    card.className = "pricing";
+
+    card.innerHTML = `
+        <h2 class="title">${title}</h2>
+        <p class="price">${price}</p>
+
+        <ul class="features">
+            ${features.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+
+        <button class="btn">
+            Démarrer l'essai
+        </button>
+    `;
+
+    return card;
+}
+
+const plan = createCard(
+    "Forfait Premium",
+    "40 000 FCFA /mois",
+    [
+        "10 Go de stockage",
+        "Support prioritaire",
+        "Toutes les fonctionnalités",
+        "Sauvegarde automatique"
+    ]
+);
+
+document
+.getElementById("card-container")
+.appendChild(plan);
+
+</script>
+
+</body>
+</html>
