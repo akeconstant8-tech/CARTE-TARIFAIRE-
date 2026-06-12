@@ -1,116 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Tarifaire</title>
 
-<title>Carte Tarifaire</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-<style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
 
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f6f9;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    margin:0;
-}
+        .pricing {
+            width: 320px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
 
-.pricing{
-    width:100%;
-    max-width:350px;
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
-    text-align:center;
-}
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
 
-.title{
-    font-size:24px;
-    margin-bottom:10px;
-}
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
 
-.price{
-    font-size:28px;
-    color:#28a745;
-    font-weight:bold;
-}
+        .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
 
-.features{
-    list-style:none;
-    padding:0;
-    margin:20px 0;
-}
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
 
-.features li{
-    padding:10px;
-    border-bottom:1px solid #eee;
-}
+        .features li:last-child {
+            border-bottom: none;
+        }
 
-.btn{
-    width:100%;
-    background:#007bff;
-    color:white;
-    border:none;
-    padding:12px;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.3s;
-}
+        .btn {
+            display: inline-block;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
 
-.btn:hover{
-    background:#0056b3;
-    transform:translateY(-2px);
-}
+        .btn:hover {
+            background-color: #0056b3;
+        }
 
-</style>
+        .btn:active {
+            transform: scale(0.98);
+        }
+    </style>
 </head>
 <body>
 
-<div id="card-container"></div>
+    <div class="pricing">
+        <h2 class="title">Forfait de base</h2>
 
-<script>
-
-function createCard(title, price, features){
-
-    const card = document.createElement("div");
-    card.className = "pricing";
-
-    card.innerHTML = `
-        <h2 class="title">${title}</h2>
-        <p class="price">${price}</p>
+        <p class="price">40 000 FCFA/mois</p>
 
         <ul class="features">
-            ${features.map(item => `<li>${item}</li>`).join("")}
+            <li>1 Go de stockage</li>
+            <li>Assistance de base</li>
+            <li>Toutes les fonctionnalités principales</li>
         </ul>
 
-        <button class="btn">
+        <button class="btn" onclick="startTrial()">
             Démarrer l'essai
         </button>
-    `;
+    </div>
 
-    return card;
-}
-
-const plan = createCard(
-    "Forfait Premium",
-    "40 000 FCFA /mois",
-    [
-        "10 Go de stockage",
-        "Support prioritaire",
-        "Toutes les fonctionnalités",
-        "Sauvegarde automatique"
-    ]
-);
-
-document
-.getElementById("card-container")
-.appendChild(plan);
-
-</script>
+    <script>
+        function startTrial() {
+            alert("Essai démarré avec succès !");
+        }
+    </script>
 
 </body>
 </html>
